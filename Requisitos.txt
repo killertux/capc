@@ -1,0 +1,22 @@
+Requisitos  Funcionais
+
+Primários:
+RP01 - Escolher diferentes locais de coleta
+RP02 - Poder fazer coleta por OAI
+RP03 - Configurar as coletas de modo dinâmico
+RP04 - Utilizar XSLT para converter os padrões de metadados
+RP05 - Permitir editar os artigos já coletados
+RP06 - Exportar para o formato batch import do DSPACE
+RP07 - Permitir que seja dinâmico os metadados que serão coletados
+RP08 - Retornar de modo intuitivo os problemas da coleta
+RP09 - Ser facilmente expansível a coleta usando outros métados(REST, SWORD..)
+RP10 - Ser configurável as datas das coletas
+RP11 - Poder setar certos padrões para campos diferentes das coletas(Talvez feito por XSLT)
+RP12 - Poder configurar um 'repositório' para fazer a deduplicação
+RP13 - Poder realizar a deduplicação a qualquer momento
+RP14 - Poder configurar comos será feito as comparações da deduplicação
+
+Secundários:
+RS01 - Exportar utilizando o SWORD
+RS02 - Coletas periodizadas(pré-agendadas)
+RS03 - Fazer deduplicação entre artigos já coletados mais ainda não exportados

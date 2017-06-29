@@ -1,2 +1,0 @@
-/home/clemente/capc/build/CMakeFiles/capc.dir
-/home/clemente/capc/build/CMakeFiles/uninstall.dir

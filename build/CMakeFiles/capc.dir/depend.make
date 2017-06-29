@@ -278,6 +278,7 @@ CMakeFiles/capc.dir/Classes/CollectTypes/OAI.o: /usr/include/qt4/QtCore/qstring.
 CMakeFiles/capc.dir/Classes/CollectTypes/OAI.o: /usr/include/qt4/QtCore/qstringbuilder.h
 
 CMakeFiles/capc.dir/Classes/MainWindowHandler/MainWindowHandler.o: ../Classes/MainWindowHandler/MainWindowHandler.hpp
+CMakeFiles/capc.dir/Classes/MainWindowHandler/MainWindowHandler.o: ../Classes/CollectTypes/CollectTypes.hpp
 CMakeFiles/capc.dir/Classes/MainWindowHandler/MainWindowHandler.o: ../Classes/MainWindowHandler/MainWindowHandler.cpp
 CMakeFiles/capc.dir/Classes/MainWindowHandler/MainWindowHandler.o: ../Classes/MainWindowHandler/MainWindowHandler.hpp
 CMakeFiles/capc.dir/Classes/MainWindowHandler/MainWindowHandler.o: ../Defines.hpp
@@ -288,6 +289,7 @@ CMakeFiles/capc.dir/Classes/MainWindowHandler/MainWindowHandler.o: /usr/include/
 CMakeFiles/capc.dir/Classes/MainWindowHandler/MainWindowHandler.o: /usr/include/qt4/QtCore/QObject
 CMakeFiles/capc.dir/Classes/MainWindowHandler/MainWindowHandler.o: /usr/include/qt4/QtCore/QPoint
 CMakeFiles/capc.dir/Classes/MainWindowHandler/MainWindowHandler.o: /usr/include/qt4/QtCore/QPointF
+CMakeFiles/capc.dir/Classes/MainWindowHandler/MainWindowHandler.o: /usr/include/qt4/QtCore/QString
 CMakeFiles/capc.dir/Classes/MainWindowHandler/MainWindowHandler.o: /usr/include/qt4/QtCore/QVariant
 CMakeFiles/capc.dir/Classes/MainWindowHandler/MainWindowHandler.o: /usr/include/qt4/QtCore/qabstractitemmodel.h
 CMakeFiles/capc.dir/Classes/MainWindowHandler/MainWindowHandler.o: /usr/include/qt4/QtCore/qalgorithms.h

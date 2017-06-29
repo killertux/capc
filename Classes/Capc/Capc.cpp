@@ -17,7 +17,7 @@ Capc::~Capc(){
 void Capc::openMainWindow(WidgetIndex startWidget){
   delete this->startWindowHandler;
   this->startWindowHandler = NULL;
-  this->mainWindowHandler = new MainWindowHandler(this,startWidget);
+  this->mainWindowHandler = new MainWindowHandler(this,startWidget,this->listCollectTypes);
 }
 
 

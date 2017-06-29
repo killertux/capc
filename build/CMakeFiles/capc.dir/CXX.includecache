@@ -20,6 +20,20 @@ QObject
 ../CollectTypes/OAI.hpp
 ../Classes/CollectTypes/OAI.hpp
 
+../Classes/MainWindowHandler/MainWindowHandler.hpp
+QObject
+-
+QWidget
+-
+../../Windows/MainWindow/MainWindow.hpp
+../Windows/MainWindow/MainWindow.hpp
+../../Windows/MainWindow/SettingsWidget.hpp
+../Windows/MainWindow/SettingsWidget.hpp
+../../Defines.hpp
+../Defines.hpp
+../CollectTypes/CollectTypes.hpp
+../Classes/CollectTypes/CollectTypes.hpp
+
 /home/clemente/capc/Classes/Capc/Capc.cpp
 Capc.hpp
 /home/clemente/capc/Classes/Capc/Capc.hpp
@@ -44,13 +58,15 @@ QObject
 QString
 -
 
-/home/clemente/capc/Classes/CollectTypes/OAI.cpp
-OAI.hpp
-/home/clemente/capc/Classes/CollectTypes/OAI.hpp
-
 /home/clemente/capc/Classes/CollectTypes/OAI.hpp
 CollectTypes.hpp
 /home/clemente/capc/Classes/CollectTypes/CollectTypes.hpp
+
+/home/clemente/capc/Classes/MainWindowHandler/MainWindowHandler.cpp
+MainWindowHandler.hpp
+/home/clemente/capc/Classes/MainWindowHandler/MainWindowHandler.hpp
+MainWindowHandler.moc
+/home/clemente/capc/Classes/MainWindowHandler/MainWindowHandler.moc
 
 /home/clemente/capc/Classes/MainWindowHandler/MainWindowHandler.hpp
 QObject
@@ -63,6 +79,8 @@ QWidget
 /home/clemente/capc/Windows/MainWindow/SettingsWidget.hpp
 ../../Defines.hpp
 /home/clemente/capc/Defines.hpp
+../CollectTypes/CollectTypes.hpp
+/home/clemente/capc/Classes/CollectTypes/CollectTypes.hpp
 
 /home/clemente/capc/Classes/StartWindowHandler/StartWindowHandler.hpp
 QObject
@@ -1441,4 +1459,8 @@ QtGui/qmatrix.h
 Capc.moc
 ../Classes/Capc/Capc.hpp
 ../Classes/Capc/Capc.hpp
+
+MainWindowHandler.moc
+../Classes/MainWindowHandler/MainWindowHandler.hpp
+../Classes/MainWindowHandler/MainWindowHandler.hpp
 

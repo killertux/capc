@@ -7,7 +7,3 @@ OAI::OAI(){
 OAI::~OAI(){
 
 }
-
-QString OAI::getName(){
-  return this->name;
-}

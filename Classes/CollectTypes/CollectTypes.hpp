@@ -7,7 +7,7 @@
 
 class CollectTypes{
 public:
-  virtual QString getName();
+  virtual QString getName() = 0;
   virtual ~CollectTypes();
 };
 

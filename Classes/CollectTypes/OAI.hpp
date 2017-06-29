@@ -9,6 +9,7 @@ private:
 public:
   OAI();
   virtual ~OAI();
+  QString getName(){return name;}
 };
 
 #endif

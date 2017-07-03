@@ -1,6 +1,6 @@
 #include "StartWindowHandler.hpp"
 
-StartWindowHandler::StartWindowHandler(QMainWindow *parent): QObject(parent){
+StartWindowHandler::StartWindowHandler(QMainWindow *parent): Handler(parent){
   //Let's create the window and execute its functions
   this->ui_StartWindow = new Ui_StartWindow();
   this->ui_StartWindow->setupUi(parent);

@@ -1,11 +1,11 @@
 #ifndef STARTWINDOWHANDLER_HPP
 #define STARTWINDOWHANDLER_HPP
 
-#include <QObject>
+#include "../Handler/Handler.hpp"
 #include "../../Windows/StartWindow/StartWindow.hpp"
 #include "../../Defines.hpp"
 
-class StartWindowHandler : public QObject {
+class StartWindowHandler : public Handler {
 private:
   Q_OBJECT
   Ui_StartWindow *ui_StartWindow;

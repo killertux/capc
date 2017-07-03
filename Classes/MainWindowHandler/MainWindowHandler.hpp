@@ -1,19 +1,18 @@
 #ifndef MAINWINDOWHANDLER_HPP
 #define MAINWINDOWHANDLER_HPP
 
-#include <QObject>
 #include <QWidget>
+#include "../Handler/Handler.hpp"
 #include "../../Windows/MainWindow/MainWindow.hpp"
-#include "../../Windows/MainWindow/SettingsWidget.hpp"
+#include "WidgetSettingsHandler.hpp"
 #include "../../Defines.hpp"
-#include "../CollectTypes/CollectTypes.hpp"
 
-class MainWindowHandler : public QObject{
+class MainWindowHandler : public Handler{
 private:
   Q_OBJECT
   Ui_MainWindow *ui_MainWindow;
-  Ui_widgetSettings *ui_widgetSetings;
-  CollectTypes **listCollectTypes;
+  
+  WidgetSettingsHandler *widgetSettingsHandler;
   
   QWidget *collectWidget;
   QWidget *visualizeWidget;

@@ -3,7 +3,7 @@
 Capc::Capc(){
   this->startWindowHandler = new StartWindowHandler(this);
   
-  this->listCollectTypes[0] = new OAI();
+  this->listCollectTypes[0] = new OAIType();
 }
 
 Capc::~Capc(){

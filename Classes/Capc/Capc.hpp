@@ -8,7 +8,7 @@
 #include "../../Defines.hpp"
 
 #include "../CollectTypes/CollectTypes.hpp"
-#include "../OAI/OAI.hpp"
+#include "../OAI/OAIType.hpp"
 
 class Capc: public QMainWindow{
 private:

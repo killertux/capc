@@ -2,11 +2,10 @@
 #define CONFIGURATION_HPP
 
 #include <QFile>
+#include <QFileInfo>
 #include <QDir>
 #include <QTextStream>
 #include <QMap>
-
-#include <iostream>
 
 class Configuration{
 private:
@@ -16,6 +15,7 @@ private:
   QMap <QString, QString>settings;
 public:
   Configuration(QString path, QString name);
+  Configuration(QString filePath);
   virtual ~Configuration();
   
   QString getSetting(QString key);

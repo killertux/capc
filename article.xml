@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<capc-article-description>
+  <field main="true">
+    <dc element="title" qualifier="none"/>
+    <label>Título do documento</label>
+    <reference>dc.title</reference>
+  </field>
+  <field>
+    <dc element="type" qualifier="none"/>
+    <label>Tipo de documento</label>
+    <reference>dc.type</reference>
+  </field>
+  <field repetitive="true">
+    <dc element="title" qualifier="alternative"/>
+    <label>Título do documento</label>
+    <reference>dc.title.alternative</reference>
+  </field>
+  <field>
+    <dc element="rights" qualifier="none"/>
+    <label>Permissão de acesso</label>
+    <reference>dc.rights</reference>
+  </field>
+  <field>
+    <dc element="rights" qualifier="uri"/>
+    <label>Link para a Política ou Licença de Direito Autoral</label>
+    <reference>dc.rights.uri</reference>
+  </field>
+  <field>
+    <dc element="date" qualifier="issued"/>
+    <label>Data de publicação</label>
+    <reference>dc.date.issued</reference>
+  </field>
+  <field repetitive="true">
+    <dc element="creator" qualifier="none"/>
+    <label>Autor</label>
+    <reference>dc.creator</reference>
+  </field>
+  <field>
+    <dc element="relation" qualifier="ispartof"/>
+    <label>Permissão de acesso</label>
+    <reference>dc.relation.ispartof</reference>
+  </field>
+  <field>
+    <dc element="citation" qualifier="volume"/>
+    <label>Volume do periódico</label>
+    <reference>dc.citation.volume</reference>
+  </field>
+  <field>
+    <dc element="citation" qualifier="issue"/>
+    <label>Número de edição do periódico</label>
+    <reference>dc.relation.ispartof</reference>
+  </field>
+  <field repetitive="true">
+    <dc element="description" qualifier="none"/>
+    <label>Notas</label>
+    <reference>dc.description</reference>
+  </field>
+  <field>
+    <dc element="relation" qualifier="uri"/>
+    <label>Link para o original</label>
+    <reference>dc.relation.uri</reference>
+  </field>
+  <field type="multiple">
+    <dc element="publisher" qualifier="local"/>
+    <label>Câmpus</label>
+    <reference>dc.publisher.local</reference>
+    <options>
+      <option>Apucarana</option>
+      <option>Campo Mourao</option>
+      <option>Cornelio Procopio</option>
+      <option>Curitiba</option>
+      <option>Dois Vizinhos</option>
+      <option>Francisco Beltrao</option>
+      <option>Guarapuava</option>
+      <option>Londrina</option>
+      <option>Medianeira</option>
+      <option>Pato Branco</option>
+      <option>Ponta Grossa</option>
+      <option>Santa Helena</option>
+      <option>Toledo</option>
+    </options>
+  </field>
+  <field>
+    <dc element="publisher" qualifier="country"/>
+    <label>País de publicação</label>
+    <reference>dc.publisher.country</reference>
+  </field>
+  <field type="dropbox">
+    <dc element="language" qualifier="none"/>
+    <label>Idioma</label>
+    <reference>dc.language</reference>
+    <options>
+      <option>eng</option>
+      <option>por</option>
+      <option>spa</option>
+      <option>fra</option>
+      <option>deu</option>
+      <option>ita</option>
+      <option>cat</option>
+      <option>nld</option>
+    </options>
+  </field>
+  <field>
+    <dc element="identifier" qualifier="doi"/>
+    <label>Identificador persistente (DOI)</label>
+    <reference>dc.identifier.doi</reference>
+  </field>
+  <field>
+    <dc element="identifier" qualifier="issn"/>
+    <label>ISSN</label>
+    <reference>dc.identifier.issn</reference>
+  </field>
+  <field repetitive="true">
+    <dc element="subject" qualifier="none"/>
+    <label>Palavras-chave</label>
+    <reference>dc.subject</reference>
+  </field>
+  <field repetitive="true">
+    <dc element="subject" qualifier="cnpq"/>
+    <label>áreas de conhecimento CNPQ</label>
+    <reference>dc.subject.cnpq</reference>
+  </field>
+  <field type="text">
+    <dc element="description" qualifier="resumo"/>
+    <label>Resumo</label>
+    <reference>dc.description.resumo</reference>
+  </field>
+  <field type="text">
+    <dc element="description" qualifier="abstract"/>
+    <label>Abstract</label>
+    <reference>dc.description.abstract</reference>
+  </field>
+  <field repetitive="true">
+    <dc element="relation" qualifier="none"/>
+    <label>Relação</label>
+    <reference>dc.relation</reference>
+  </field>
+  <field type="text">
+    <dc element="identifier" qualifier="citation"/>
+    <label>Referência</label>
+    <reference>dc.identifier.citation</reference>
+  </field>
+  <field hidden="true" filter="true" compare="contains">
+    <reference>affiliation</reference>
+    <options>
+		<option>UTFPR</option>
+		<option>Universidade Tecnológica Federal do Paraná</option>
+		<option>CEFET-PR</option>
+		<option>Centro Federal de Educação Tecnológica do Paraná</option>
+		<option>Federal University of Technology of Paraná</option>
+    </options>
+  </field>
+  <field hidden="true">
+    <reference>fileLink</reference>
+  </field>
+</capc-article-description>

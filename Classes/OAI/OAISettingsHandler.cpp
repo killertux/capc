@@ -44,21 +44,22 @@ void OAISettingsHandler::save(){
   }
   
   QDir dir(COLLECT_POINTS_CONFIG_FOLDER);
-  Configuration config(COLLECT_POINTS_CONFIG_FOLDER,this->ui_OAISettingsWindow->lineEditName->text());
-  config.setSetting("name",this->ui_OAISettingsWindow->lineEditName->text());
-  config.setSetting("oai_address",this->ui_OAISettingsWindow->lineEditOAIAddress->text());
-  config.setSetting("metadata_type",this->ui_OAISettingsWindow->lineEditMetadataType->text());
-  QFile::copy(this->ui_OAISettingsWindow->kurlrequesterXSLT->text(),dir.absolutePath());
-  QFileInfo infoXSLT(this->ui_OAISettingsWindow->kurlrequesterXSLT->text());
-  config.setSetting("xslt",infoXSLT.fileName());
+  OAI oai(dir.absoluteFilePath(this->ui_OAISettingsWindow->lineEditName->text()+".cfg"));
+  
+  oai.setSetting("type","OAI-PMH");
+  oai.setSetting("name",this->ui_OAISettingsWindow->lineEditName->text());
+  oai.setSetting("oai_address",this->ui_OAISettingsWindow->lineEditOAIAddress->text());
+  oai.setSetting("metadata_type",this->ui_OAISettingsWindow->lineEditMetadataType->text());
+  QFile::copy(this->ui_OAISettingsWindow->kurlrequesterXSLT->text(),dir.absoluteFilePath(this->ui_OAISettingsWindow->lineEditName->text()+"_xsl.xsl"));
+  oai.setSetting("xslt",this->ui_OAISettingsWindow->lineEditName->text()+"_xsl.xsl");
   if(!this->ui_OAISettingsWindow->kurlrequesterScript->text().isEmpty()){
-    QFile::copy(this->ui_OAISettingsWindow->kurlrequesterScript->text(),dir.absolutePath());
     QFileInfo infoScript(this->ui_OAISettingsWindow->kurlrequesterScript->text());
-    config.setSetting("script",infoScript.fileName());
+    QFile::copy(this->ui_OAISettingsWindow->kurlrequesterScript->text(),dir.absoluteFilePath(infoScript.fileName()));
+    oai.setSetting("script",infoScript.fileName());
   }
   if(!this->ui_OAISettingsWindow->lineEditScriptParameters->text().isEmpty())
-    config.setSetting("script_parameters",this->ui_OAISettingsWindow->lineEditScriptParameters->text());
-  config.save();
+    oai.setSetting("script_parameters",this->ui_OAISettingsWindow->lineEditScriptParameters->text());
+  oai.save();
   ((QMainWindow*)this->parent)->close();
 }
 

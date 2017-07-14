@@ -7,8 +7,11 @@
 
 #include "../Handler/Handler.hpp"
 #include "../../Windows/OAI/OAISettingsWindow.hpp"
+#include "OAI.hpp"
 #include "../Configuration/Configuration.hpp"
 #include "../../Defines.hpp"
+
+#include <iostream>
 
 class OAISettingsHandler : public Handler{
 private:

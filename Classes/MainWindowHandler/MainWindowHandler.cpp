@@ -10,11 +10,16 @@ MainWindowHandler::MainWindowHandler(QMainWindow* parent, WidgetIndex startWidge
   this->ui_MainWindow->retranslateUi(parent);
   
   this->widgetSettingsHandler = new WidgetSettingsHandler(this->settingsWidget, listCollectTypes);
+  this->widgetCollectHandler = new WidgetCollectHandler(this->collectWidget);
 
   this->ui_MainWindow->tabWidget->addTab(this->collectWidget, "Realizar Coleta");
   this->ui_MainWindow->tabWidget->addTab(this->visualizeWidget, "Visualizar Coletas");
   this->ui_MainWindow->tabWidget->addTab(this->settingsWidget, QString::fromUtf8("Configurações"));
   this->ui_MainWindow->tabWidget->setCurrentIndex((int)startWidget);
+  
+  //Connects
+  this->parent->connect(this->ui_MainWindow->tabWidget,SIGNAL(currentChanged(int)),this,SLOT(update(int)));
+  this->parent->connect(this->widgetCollectHandler,SIGNAL(startCollect(CollectPoints*)),this,SLOT(startCollect(CollectPoints*)));
 }
 
 MainWindowHandler::~MainWindowHandler(){
@@ -24,5 +29,27 @@ MainWindowHandler::~MainWindowHandler(){
   delete this->visualizeWidget;
   delete settingsWidget;
 }
+
+void MainWindowHandler::update(int index){
+  if(index == CAPC_COLLECT){
+    this->widgetCollectHandler->updateCollectList();
+  }
+}
+
+void MainWindowHandler::startCollect(CollectPoints* collectPoint){
+  QWidget *pointWidget = new QWidget();
+  WidgetCollectPointHandler *handler = new WidgetCollectPointHandler(pointWidget,collectPoint);
+  this->parent->connect(handler,SIGNAL(deleteThis()),this,SLOT(stopCollect()));
+  this->collectPointsHandler.append(handler);
+  this->collectPointsWidgets.append(pointWidget);
+  this->ui_MainWindow->tabWidget->setCurrentIndex(this->ui_MainWindow->tabWidget->addTab(pointWidget,collectPoint->getName()));
+}
+
+void MainWindowHandler::stopCollect(){
+  QWidget *current = this->ui_MainWindow->tabWidget->currentWidget();
+  current->close();
+  this->ui_MainWindow->tabWidget->removeTab(this->ui_MainWindow->tabWidget->currentIndex());
+}
+
 
 #include "MainWindowHandler.moc"

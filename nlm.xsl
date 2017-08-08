@@ -5,12 +5,14 @@
     xmlns:oai="http://www.openarchives.org/OAI/2.0/"
     xmlns:nlm="http://dtd.nlm.nih.gov/publishing/2.3"
     xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:xml="http://www.w3.org/XML/1998/namespace"
 >
 <xsl:output method="xml"/>
 
 <xsl:template match="/">
 	<capc-articles>
 		<xsl:apply-templates select="//oai:metadata/nlm:article"/>
+		<resumptionToken><xsl:value-of select="//oai:resumptionToken"/></resumptionToken>
 	</capc-articles>
 </xsl:template>
 
@@ -108,7 +110,7 @@
 	<field>
 		<value><xsl:choose>
 			<xsl:when test="nlm:front/nlm:article-meta/nlm:abstract/@xml:lang = 'PT'"><xsl:value-of select="nlm:front/nlm:article-meta/nlm:abstract"/></xsl:when>
-			<xsl:when test="nlm:front/nlm:article-meta/nlm:abstract-trans/@xml:lang = 'PT'"><xsl:value-of select="nlm:front/nlm:article-meta/nlm:abstract-trans"/></xsl:when>
+			<xsl:when test="nlm:front/nlm:article-meta/nlm:abstract-trans/@xml:lang = 'PT'"><xsl:value-of select="nlm:front/nlm:article-meta/nlm:abstract-trans[@xml:lang='PT']"/></xsl:when>
 			</xsl:choose>
 		</value>
 		<reference>dc.description.resumo</reference>
@@ -116,7 +118,7 @@
 	<field>
 		<value><xsl:choose>
 			<xsl:when test="nlm:front/nlm:article-meta/nlm:abstract/@xml:lang = 'EN'"><xsl:value-of select="nlm:front/nlm:article-meta/nlm:abstract"/></xsl:when>
-			<xsl:when test="nlm:front/nlm:article-meta/nlm:abstract-trans/@xml:lang = 'EN'"><xsl:value-of select="nlm:front/nlm:article-meta/nlm:abstract-trans"/></xsl:when>
+			<xsl:when test="nlm:front/nlm:article-meta/nlm:abstract-trans/@xml:lang = 'EN'"><xsl:value-of select="nlm:front/nlm:article-meta/nlm:abstract-trans[@xml:lang='EN']"/></xsl:when>
 			</xsl:choose>
 		</value>
 		<reference>dc.description.abstract</reference>
@@ -130,7 +132,7 @@
 	<field>
 		<value><xsl:value-of select="nlm:front/nlm:article-meta/nlm:self-uri[@content-type]/@xlink:href"/></value>
 		<reference>fileLink</reference>
-  </field>
+	</field>
   </capc-article>
 </xsl:template>
 </xsl:stylesheet>

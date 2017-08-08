@@ -3,6 +3,9 @@
 MainWindowHandler::MainWindowHandler(QMainWindow* parent, WidgetIndex startWidget, CollectTypes** listCollectTypes): Handler(parent){
   this->collectWidget = new QWidget(parent);
   this->visualizeWidget = new QWidget(parent);
+  QHBoxLayout *layout = new QHBoxLayout(this->visualizeWidget);
+  this->visualizeWidgetContents = new QWidget(this->visualizeWidget);
+  layout->addWidget(this->visualizeWidgetContents);
   this->settingsWidget = new QWidget(parent);
   
   this->ui_MainWindow = new Ui_MainWindow();
@@ -11,6 +14,7 @@ MainWindowHandler::MainWindowHandler(QMainWindow* parent, WidgetIndex startWidge
   
   this->widgetSettingsHandler = new WidgetSettingsHandler(this->settingsWidget, listCollectTypes);
   this->widgetCollectHandler = new WidgetCollectHandler(this->collectWidget);
+  this->widgetVisualizeHandler = new WidgetVisualizeHandler(this->visualizeWidgetContents);
 
   this->ui_MainWindow->tabWidget->addTab(this->collectWidget, "Realizar Coleta");
   this->ui_MainWindow->tabWidget->addTab(this->visualizeWidget, "Visualizar Coletas");
@@ -20,6 +24,7 @@ MainWindowHandler::MainWindowHandler(QMainWindow* parent, WidgetIndex startWidge
   //Connects
   this->parent->connect(this->ui_MainWindow->tabWidget,SIGNAL(currentChanged(int)),this,SLOT(update(int)));
   this->parent->connect(this->widgetCollectHandler,SIGNAL(startCollect(CollectPoints*)),this,SLOT(startCollect(CollectPoints*)));
+  this->parent->connect(this->widgetVisualizeHandler, SIGNAL(listItems(Collect*)), this, SLOT(listItems(Collect*)));
 }
 
 MainWindowHandler::~MainWindowHandler(){
@@ -49,6 +54,14 @@ void MainWindowHandler::stopCollect(){
   QWidget *current = this->ui_MainWindow->tabWidget->currentWidget();
   current->close();
   this->ui_MainWindow->tabWidget->removeTab(this->ui_MainWindow->tabWidget->currentIndex());
+}
+
+void MainWindowHandler::listItems(Collect* collect){
+  QLayout *layout = this->visualizeWidget->layout();
+  delete this->visualizeWidgetContents;
+  this->visualizeWidgetContents = new QWidget(this->visualizeWidget);
+  layout->addWidget(this->visualizeWidgetContents);
+  this->widgetListItemsHandler = new WidgetListItemsHandler(this->visualizeWidgetContents, collect);
 }
 
 

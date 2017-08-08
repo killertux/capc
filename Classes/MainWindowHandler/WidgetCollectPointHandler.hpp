@@ -6,6 +6,8 @@
 #include "../CollectPoints/CollectPoints.hpp"
 #include "../OAI/OAI.hpp"
 #include "../Message/Message.hpp"
+#include "../../Defines.hpp"
+#include "../../functions.hpp"
 
 class WidgetCollectPointHandler : public Handler{
 private:

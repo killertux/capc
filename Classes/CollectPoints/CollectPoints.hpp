@@ -11,7 +11,7 @@ public:
   virtual void load() = 0;
   virtual void load(QString cfgFilePath) = 0;
   virtual void save()= 0 ;
-  virtual int collect(Article **articles, QDate startDate, QDate endDate) = 0;
+  virtual int collect(Article ***articles, QDate startDate, QDate endDate, QObject *parent) = 0;
   
   virtual void setName(QString name) = 0;
   virtual void setCfgFilePath(QString cfgFilePath) = 0;

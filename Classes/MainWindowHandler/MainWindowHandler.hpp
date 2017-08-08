@@ -8,8 +8,11 @@
 #include "WidgetSettingsHandler.hpp"
 #include "WidgetCollectHandler.hpp"
 #include "WidgetCollectPointHandler.hpp"
+#include "WidgetVisualizeHandler.hpp"
+#include "WidgetListItemsHandler.hpp"
 #include "../../Defines.hpp"
 #include "../CollectPoints/CollectPoints.hpp"
+#include "../Collect/Collect.hpp"
 
 class MainWindowHandler : public Handler{
 private:
@@ -18,9 +21,12 @@ private:
   
   WidgetSettingsHandler *widgetSettingsHandler;
   WidgetCollectHandler *widgetCollectHandler;
+  WidgetVisualizeHandler *widgetVisualizeHandler;
+  WidgetListItemsHandler *widgetListItemsHandler;
   
   QWidget *collectWidget;
   QWidget *visualizeWidget;
+  QWidget *visualizeWidgetContents;
   QWidget *settingsWidget;
   QList<QWidget *>collectPointsWidgets;
   QList<WidgetCollectPointHandler*>collectPointsHandler;
@@ -33,6 +39,7 @@ public slots:
   void update(int index);
   void startCollect(CollectPoints *collectPoint);
   void stopCollect();
+  void listItems(Collect *collect);
 };
 
 #endif

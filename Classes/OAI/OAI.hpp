@@ -7,18 +7,19 @@
 #include <QNetworkAccessManager>
 #include <QTemporaryFile>
 #include <QUrl>
+#include <QBuffer>
 #include <QNetworkRequest>
 #include <QNetworkReply>
-#include <QtXml>
 #include <QDateTime>
-#include <QXmlResultItems>
-#include <QXmlNodeModelIndex>
-#include <QXmlQuery>
 #include <QEventLoop>
+#include <QVector>
+#include "../XML/XML.hpp"
 #include "../Configuration/Configuration.hpp"
-
+#include "../Article/ArticleDAO.hpp"
+#include "../Article/Article.hpp"
 #include "../CollectPoints/CollectPoints.hpp"
 #include "../Article/Article.hpp"
+#include "../Message/Message.hpp"
 
 enum CurrentState{
   OAI_NONE = 0,
@@ -31,11 +32,16 @@ private:
   Q_OBJECT
   QString name;
   QString cfgFilePath;
+  QString resumptionToken;
   QMap<QString, QString> settings;
   Configuration *config;
   CurrentState state;
-  QBuffer *file;
+  QByteArray *buffer;
   QEventLoop loop;
+  QNetworkAccessManager *manager;
+  ArticleDAO *articleDAO;
+  QVector<Article*> articles;
+  int nCollected;
   
   void getFirstDate();
   QString guessGranularity(QString granularity);
@@ -48,7 +54,7 @@ public:
   void load();
   void load(QString cfgFilePath);
   void save();
-  int collect(Article **articles, QDate startDate, QDate endDate);
+  int collect(Article ***articles, QDate startDate, QDate endDate, QObject *parent);
   
   void setName(QString name){this->name = name;}
   void setCfgFilePath(QString cfgFilePath){this->cfgFilePath = cfgFilePath;}
@@ -60,13 +66,15 @@ public:
   QDate getLastCollected();
 
 private slots:
-  
+  void slotError(QNetworkReply::NetworkError);
+  void xmlProcessor(XMLNode *node);
 public slots:
   void fileReady(QNetworkReply *reply);
   
 signals:
   void dateUpdated();
   void returnFile();
+  void sendMessage(Message newMessage);
 };
 
 #endif

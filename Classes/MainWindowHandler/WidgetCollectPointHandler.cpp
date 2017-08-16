@@ -64,6 +64,7 @@ void WidgetCollectPointHandler::collect(){
     functions::exec(QFileInfo(this->collectPoint->getCfgFilePath()).dir().absoluteFilePath(this->collectPoint->getSetting("script")) + " " + dir.absolutePath() + parameters_str);
     dir.cdUp();
   }
+  this->addMessage(Message("Coleta Terminada!"));
 }
 
 

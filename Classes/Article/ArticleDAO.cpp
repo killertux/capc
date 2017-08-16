@@ -3,7 +3,8 @@
 
 ArticleDAO::ArticleDAO(QString xmlDefinition, QObject *parent): QObject(parent){
   QFile file(xmlDefinition);
-  
+  this->article = NULL;
+  std::cout << xmlDefinition.toStdString() << std::endl;
   file.open(QIODevice::ReadOnly);
   XML parser(&file, this);
   this->connect(&parser, SIGNAL(nodeCompleted(XMLNode*)), this, SLOT(processXmlDefinition(XMLNode*)));
@@ -72,8 +73,10 @@ void ArticleDAO::processXml(XMLNode *node){
       if(c->getName() == "field"){
         Field *newField = new Field;
         newField->processNode(c);
-        *newField = *this->possibleFields[newField->getReference()];
-        newArticle->addField(newField);
+        if(this->possibleFields.contains(newField->getReference())){
+          *newField = *this->possibleFields[newField->getReference()];
+          newArticle->addField(newField);
+        }
       }
     }
     this->article = newArticle;

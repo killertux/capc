@@ -9,7 +9,7 @@ Field *Article::getMainField(){
 }
 
 QString Article::toXml(){
-  QString ret = "<cacp-article>\n";
+  QString ret = "<capc-article>\n";
   
   for(auto &field: this->fields){
     ret += "\t<field>\n";
@@ -18,7 +18,7 @@ QString Article::toXml(){
       ret += "\t\t<value>" + field->getValue(i) + "</value>\n";
     ret += "\t</field>\n";
   }
-  ret += "</cacp-article>\n";
+  ret += "</capc-article>\n";
   return ret;
 }
 
@@ -32,8 +32,8 @@ Field* Article::getField(QString reference){
 
 Message Article::getMessage(){
   Message msg;
-  msg.setMessage(this->getMainField()->getValue(0) + "\n Notas:" + this->note);
-  if(this->getNFiles() == 0){
+  msg.setMessage(this->getMainField()->getValue(0) + "\nNotas:" + this->note);
+  if(this->files.isEmpty()){
     msg.setMessageStatus(M_FILE_MISSING);
     return msg;
   }

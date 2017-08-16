@@ -5,6 +5,7 @@
 #include <QStringList>
 #include <QDir>
 #include <QDateTime>
+#include <QTextStream>
 
 #include "../Article/Article.hpp"
 #include "../Article/ArticleDAO.hpp"

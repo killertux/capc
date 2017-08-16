@@ -15,7 +15,7 @@ class WidgetVisualizeHandler : public Handler {
 private:
   Q_OBJECT
   Ui_visualizeWidget *ui_visualizeWidget;
-  QVector<Collect*> collects;
+  QVector<Collect*> *collects;
 public:
   WidgetVisualizeHandler(QWidget *parent);
   virtual ~WidgetVisualizeHandler();
